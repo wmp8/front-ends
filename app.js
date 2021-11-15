@@ -14,7 +14,7 @@ function App() {
               <Landing />
             </Route>
             <Route exact path='/signup'>
-              <Login />
+              <Signup />
             </Route>
           </Switch>
         </BrowserRouter>
