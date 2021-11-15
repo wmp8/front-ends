@@ -18,6 +18,19 @@ export default function Signup() {
             placeholder='username'
             id='username' />
       </label>
+      <label>Phone Number:
+          <input 
+            type='number'
+            placeholder='phone-number'
+            id='phonenumber' />
+      </label>
+      <label>Password:
+          <input 
+            type='password'
+            placeholder='password'
+            id='password' />
+      </label>
+      <button>Submit</button>
       </form>
       </>
     );
