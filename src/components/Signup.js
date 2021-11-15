@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Input, Label, FormGroup } from 'reactstrap';
+import './signup.css'
 
 
 const initialData = {
@@ -27,7 +28,7 @@ export default function Signup() {
     return (
       <>
       <h1>Sign Up</h1>
-      <Form>
+      <Form className='container-fluid'>
         <FormGroup>
           <Label for='username'>
             Username
@@ -66,7 +67,7 @@ export default function Signup() {
             placeholder='6 character minimum'
             id='password' />
         </FormGroup>
-      <Button>Submit</Button>
+      <Button className='button'>Submit</Button>
 
         </Form>
       </>
