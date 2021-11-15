@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Signup from './components/signup';
-import Landing from './components/Landing';
+import Signup from './src/components/Signup';
+import Landing from './src/components/Landing';
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
               <Landing />
             </Route>
             <Route exact path='/signup'>
-              <Login />
+              <Signup />
             </Route>
           </Switch>
         </BrowserRouter>
