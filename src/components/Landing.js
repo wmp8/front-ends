@@ -3,7 +3,7 @@ import Signup from './Signup'
 
 const Landing = () => {
     return (
-      <div></div>
+      <div>welcome to the landing page</div>
     )
 }
 
