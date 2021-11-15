@@ -1,0 +1,1 @@
+// plant has id: integer ,nickname: string  ,species: string h2o frequency:Type determined by implementation, image
