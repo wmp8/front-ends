@@ -1,6 +1,7 @@
 // username phone number and password
 import React from 'react';
 import axios from 'axios';
+import { Form, Button, Input } from 'reactstrap';
 
 
 
@@ -9,29 +10,27 @@ export default function Signup() {
     
   
     return (
-      <>
-      <form>
+      <Form>
       <h1>Sign Up</h1>
       <label>Username:
-          <input 
+          <Input 
             type='text'
             placeholder='username'
             id='username' />
       </label>
       <label>Phone Number:
-          <input 
+          <Input 
             type='number'
             placeholder='phone-number'
             id='phonenumber' />
       </label>
       <label>Password:
-          <input 
+          <Input 
             type='password'
             placeholder='password'
             id='password' />
       </label>
-      <button>Submit</button>
-      </form>
-      </>
+      <Button>Submit</Button>
+      </Form>
     );
   }
