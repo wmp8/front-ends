@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
 import Signup from './components/signup';
 import Landing from './components/Landing';
 
