@@ -4,7 +4,7 @@ import React from "react";
 
 const Plant = () => {
     return (
-        <h1>welocome to the plant page</h1>
+        <h1>Plant Page</h1>
     )
 
 }
