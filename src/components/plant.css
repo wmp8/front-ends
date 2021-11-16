@@ -1,0 +1,18 @@
+
+h1{
+    text-align: center;
+}
+.card {
+  text-align: center;
+  margin: 8% 4%;
+  padding: 100px;
+}
+
+img {
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        
+      
+}
