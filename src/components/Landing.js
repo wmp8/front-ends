@@ -1,9 +1,13 @@
 import React from "react";
 import Signup from './Signup'
+import NavBar  from "./NavBar.js";
+
 
 const Landing = () => {
     return (
-      <div>welcome to the landing page</div>
+      <div>
+        <NavBar />
+      </div>
     )
 }
 
