@@ -1,8 +1,6 @@
 // home signup, login/logout, addPlant, update personal
 import React from "react";
-import "bootstrap/dist/css/bootstrap.css";
-import { Navbar } from "react-bootstrap";
-import * as ReactBootStrap from "react-bootstrap";
+
 
 const NavBar = () => {
   return (
