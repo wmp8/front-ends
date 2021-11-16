@@ -1,6 +1,5 @@
 // username phone number and password
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Form, Button, Input, Label, FormGroup } from 'reactstrap';
 import './signup.css'
 
