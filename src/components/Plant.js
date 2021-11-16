@@ -1,16 +1,17 @@
 // plant has id: integer ,nickname: string  ,species: string h2o frequency:Type determined by implementation, image
 import React from "react";
-import Image from "react-bootstrap/Image";
 import "./plant.css";
+import axios from "axios";
 
 const Plant = () => {
   return (
-    <div className="container">
+    <div className="plant-container">
       <h1>Plant Page</h1>
-
-      <div className="card">
-        <img src="holder.js/171x180" rounded />
-
+      <div className="plant-card">
+        <div className="img-container">
+          <img src="https://images.pexels.com/photos/827518/pexels-photo-827518.jpeg?cs=srgb&dl=pexels-valeria-boltneva-827518.jpg&fm=jpg" />
+        </div>
+        <div className="plant-card-content">
         <div className="text">
           <p>
             Contrary to popular belief, Lorem Ipsum is not simply random text.
@@ -29,6 +30,8 @@ const Plant = () => {
         </div>
         <button>Edit</button>
         <button>Update</button>
+
+        </div>
       </div>
     </div>
   );
