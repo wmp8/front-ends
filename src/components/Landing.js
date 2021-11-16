@@ -1,6 +1,6 @@
 import React from "react";
 import Signup from './Signup'
-import NavBar  from "./NavBar.js";
+import NavBar  from "./Navbar";
 
 
 const Landing = () => {
