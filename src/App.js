@@ -2,7 +2,7 @@ import React  from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Signup from './components/Signup';
 import Landing from './components/Landing';
-
+import Login from './components/login';
 import { useState } from 'react';
 
 import NavBar  from "./components/Navbar";
@@ -23,11 +23,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route exact path='/' element={<Landing />}/>
-
-              
-         
-
-
+            <Route exact path='/login' element={<Login />} />
             <Route exact path='/signup' element={<Signup />} />
             <Route exact path='/plantobj' element={<Plantobj />} />
             <Route exact path='/plant' element={<Plant />} />
