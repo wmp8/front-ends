@@ -5,6 +5,7 @@ import Landing from './components/Landing';
 import Login from './components/login';
 import { useState } from 'react';
 
+
 import NavBar  from "./components/Navbar";
 import Plantobj from './components/Plantobj';
 import Plant from './components/Plant';
@@ -12,6 +13,15 @@ import Plant from './components/Plant';
 
 import './App.css'
 
+let plant = {
+  "image_url": "marble-pothos.png",
+  "light_requirement": "Thrives in medium to low indirect light. Not suited for intense, direct sun.",
+  "nickname": "Marble Queen Pothos",
+  "plant_id": 1,
+  "species": "",
+  "user_id": 1,
+  "water_frequency": "Water every 1-2 weeks"
+}
 
 
 function App() {
@@ -26,7 +36,7 @@ function App() {
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/signup' element={<Signup />} />
             <Route exact path='/plantobj' element={<Plantobj />} />
-            <Route exact path='/plant' element={<Plant />} />
+            <Route exact path='/plant' element={<Plant plant={plant}/>} />
           </Routes>
         </BrowserRouter>
       </div>

@@ -1,6 +1,8 @@
 // home signup, login/logout, addPlant, update personal
 import React from "react";
 import { Link } from 'react-router-dom'
+import './navbar.css'
+
 
 
 
@@ -15,8 +17,9 @@ const NavBar = () => {
         <button class="navbar-toggler" data-toggle="collapse" data-target='#navBarMenu'>
 
             <span class='navbar-toggler-icon'></span>
+
         </button>
-        <div class="collapse navbar-collapse "  id="navBarMenu">
+        <div class="collapse navbar-collapse"  id="navBarMenu" id="collasible-nav-dropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
             <Link to="/signup"><button class="nav-link"> Signup </button></Link>
