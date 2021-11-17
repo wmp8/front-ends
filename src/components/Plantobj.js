@@ -1,12 +1,12 @@
 // list of created plants, plant can be deleted seleted to show details, update
 // 
 import React, {useState} from "react";
-
+import './plantObj.css'
 
 
 const plantData = [
     {
-        "image_url": "marble-pothos.png",
+        "image_url": "/images/marble-pothos.png",
         "light_requirement": "Thrives in medium to low indirect light. Not suited for intense, direct sun.",
         "nickname": "Marble Queen Pothos",
         "plant_id": 1,
@@ -15,7 +15,7 @@ const plantData = [
         "water_frequency": "Water every 1-2 weeks"
     },
     {
-        "image_url": "snake-plant2.png",
+        "image_url": "/images/snake-plant.png",
         "light_requirement": "Thrives in medium to bright indirect light, but can tolerate low indirect light.",
         "nickname": "Snake Plant Laurentii",
         "plant_id": 2,
@@ -24,7 +24,7 @@ const plantData = [
         "water_frequency": "Water every 2-3 weeks"
     },
     {
-        "image_url": "zz.png",
+        "image_url": "/images/zz.png",
         "light_requirement": "Thrives in medium to low indirect light. Can tolerate bright indirect light. Not suited for intense, direct sun.",
         "nickname": "ZZ Plant",
         "plant_id": 3,
@@ -33,7 +33,7 @@ const plantData = [
         "water_frequency": "Water every 3-4 weeks"
     },
     {
-        "image_url": "ech.png",
+        "image_url": "/images/ech.png",
         "light_requirement": "Thrives in bright direct light, but can tolerate bright indirect light.",
         "nickname": "Echeveria",
         "plant_id": 4,
