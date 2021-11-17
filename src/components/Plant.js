@@ -18,6 +18,14 @@ console.log(plantData);
 const Plant = (props) => {
   const [data, setData] = useState(plantData);
 
+  axios.get('id="collasible-nav-dropdown">')
+  .then((res) => {
+      
+  })
+.catch((err) => {
+
+});
+
   return (
     <div className="plant-container">
       <h1>Plant Diaries</h1>
@@ -26,7 +34,7 @@ const Plant = (props) => {
         <h3>Name: {data.nickname}</h3>
 
         <div className="img-container">
-          <img src={data.image_url} />
+          <img src={ data.image_url } alt={data.nickname}/>
         </div>
         
         <div className="plant-card-content">
@@ -42,6 +50,7 @@ const Plant = (props) => {
             <p>User-ID: {data.user_id}</p>
             <p>Water frequency: {data.water_frequency}</p>
           </div>
+
           <button>Edit</button>
           <button>Update</button>
         </div>
