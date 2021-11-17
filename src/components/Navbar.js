@@ -5,9 +5,16 @@ import "./navbar.css";
 
 const NavBar = () => {
   return (
-    <div class="header">
-      <nav class="navbar navbar-expand-sm navbar-light bg-myRed">
-        
+
+    <div className="header">
+      <nav className="navbar navbar-expand-sm navbar-light bg-myRed">
+        <Link to="/"><button className="navbar-brand">Home</button></Link>
+         
+        <button className="navbar-toggler" data-toggle="collapse" data-target='#navBarMenu'>
+
+            <span className='navbar-toggler-icon'></span>
+
+  
 
         <button
           class="navbar-toggler"
@@ -17,30 +24,14 @@ const NavBar = () => {
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+        <div className="collapse navbar-collapse"  id="navBarMenu" id="collasible-nav-dropdown">
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <Link to="/signup"><button className="nav-link"> Signup </button></Link>
+          </li>
+          <li className="nav-item">
+          <Link to="/login"><button className="nav-link"> Login </button></Link>
 
-        <div
-          class="collapse navbar-collapse"
-          id="navBarMenu"
-          id="collasible-nav-dropdown"
-        >
-          <ul class="navbar-nav">
-            <li>
-              <Link to="/">
-                <button class="navbar-brand">Home</button>
-              </Link>
-            </li>
-            <li class="nav-item">
-              <Link to="/signup">
-                <button class="nav-link"> Signup </button>
-              </Link>
-            </li>
-            <li class="nav-item">
-              <Link to="/login">
-                <button class="nav-link"> Login </button>
-              </Link>
-            </li>
-          <li class="nav-item">
-          <Link to="/logout"><button class="nav-link"> Logout </button></Link>
           </li>
         </ul>
 
