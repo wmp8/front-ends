@@ -27,6 +27,9 @@ const NavBar = () => {
           <li class="nav-item">
           <Link to="/login"><button class="nav-link"> Login </button></Link>
           </li>
+          <li class="nav-item">
+          <Link to="/logout"><button class="nav-link"> Logout </button></Link>
+          </li>
         </ul>
 
         </div>
