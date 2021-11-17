@@ -4,7 +4,7 @@ import "./plant.css";
 import axios from "axios";
 
 let plantData = {
-  image_url: "marble-pothos.png",
+  image_url: "/images/marble-pothos.png",
   light_requirement:
     "Thrives in medium to low indirect light. Not suited for intense, direct sun.",
   nickname: "Marble Queen Pothos",

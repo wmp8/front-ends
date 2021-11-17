@@ -10,7 +10,7 @@ const Landing = () => {
         <div class="container-fluid text-center">    
         
         
-        <div class="text-justify"> 
+        <div class="text-justify  bg-light p-1 text-dark bg-opacity-50"> 
           <h1>Welcome To The Watering Can</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           <hr />
