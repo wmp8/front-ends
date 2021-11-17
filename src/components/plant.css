@@ -27,9 +27,9 @@
     border-top-right-radius: 10px;
 }
 
-.plant-container img {
+.plantImg {
   object-fit: cover;
   object-position: center;
-  width: 100%;
-  height: auto;
+  width:50%;
+ 
 }

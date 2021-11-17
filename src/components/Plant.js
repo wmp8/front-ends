@@ -34,7 +34,7 @@ const Plant = (props) => {
         <h3>Name: {data.nickname}</h3>
 
         <div className="img-container">
-          <img src={ data.image_url } alt={data.nickname}/>
+          <img className="plantImg" src={ data.image_url } alt={data.nickname}/>
         </div>
         
         <div className="plant-card-content">
