@@ -45,22 +45,27 @@ const plantData = [
 ]
 
 
-const getPlantData = async () => {
+const getPlantData = async (plantUpdater) => {
     try {
         const token = localStorage.getItem('token')
-        const config = {"Authorization": token}
+        const config = {
+            headers: {
+                'Authorization': token
+            }
+        }
         const response = await axios.get('https://wampl.herokuapp.com/api/plants/all', config)
-        console.log(typeof token)
+        plantUpdater(response.data)
     } catch (error){
         console.error(error)
     }
 }
 
+
 const Plantobj = () => {
 
     const [plants, setPlants] = useState(plantData)
     useEffect(() => {
-        getPlantData()
+        getPlantData(setPlants)
     }, [])
 
     const elements = plants.map((plant) => {
