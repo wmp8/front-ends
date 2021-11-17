@@ -6,6 +6,8 @@ import "./navbar.css";
 const NavBar = () => {
   return (
 
+
+
     <div className="header">
       <nav className="navbar navbar-expand-sm navbar-light bg-myRed">
         <Link to="/"><button className="navbar-brand">Home</button></Link>
@@ -16,6 +18,9 @@ const NavBar = () => {
 
   
 
+
+      <nav class=" col-lg-12 navbar navbar-expand-md navbar-dark pt-2 pb-2 bg-myRed">
+        <Link to="/"><button class="nav-link"> Home </button></Link>
         <button
           class="navbar-toggler"
           type="button"
@@ -24,6 +29,8 @@ const NavBar = () => {
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
+
         <div className="collapse navbar-collapse"  id="navBarMenu" id="collasible-nav-dropdown">
         <ul className="navbar-nav">
           <li className="nav-item">
@@ -36,9 +43,10 @@ const NavBar = () => {
         </ul>
 
 
+
         </div>
       </nav>
-    </div>
+   </div>
   );
 };
 
