@@ -17,6 +17,7 @@ const NavBar = () => {
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div
           class="collapse navbar-collapse"
           id="navBarMenu"
@@ -38,7 +39,12 @@ const NavBar = () => {
                 <button class="nav-link"> Login </button>
               </Link>
             </li>
-          </ul>
+          <li class="nav-item">
+          <Link to="/logout"><button class="nav-link"> Logout </button></Link>
+          </li>
+        </ul>
+
+
         </div>
       </nav>
     </div>
