@@ -1,13 +1,30 @@
 // plant has id: integer ,nickname: string  ,species: string h2o frequency:Type determined by implementation, image
-import React from "react";
+import React, { useState } from "react";
 import "./plant.css";
 import axios from "axios";
 
-const Plant = () => {
+let plantData ={
+    "image_url": "marble-pothos.png",
+  "light_requirement": "Thrives in medium to low indirect light. Not suited for intense, direct sun.",
+  "nickname": "Marble Queen Pothos",
+  "plant_id": 1,
+  "species": "",
+  "user_id": 1,
+  "water_frequency": "Water every 1-2 weeks"
+}
+
+
+const Plant = (props) => {
+    const [data, setData] = useState(plantData)
+    
   return (
     <div className="plant-container">
-      <h1>Plant Page</h1>
+      <h1>Plant Diaries</h1>
+     
       <div className="plant-card">
+          <h3>Name:{data.nickname}</h3>
+          console.log(props.nickname);
+          
         <div className="img-container">
           <img src="https://images.pexels.com/photos/827518/pexels-photo-827518.jpeg?cs=srgb&dl=pexels-valeria-boltneva-827518.jpg&fm=jpg" />
         </div>
