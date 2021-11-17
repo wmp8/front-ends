@@ -1,18 +1,35 @@
-
-h1{
-    text-align: center;
-}
-.card {
+.plant-container h1 {
   text-align: center;
-  margin: 8% 4%;
-  padding: 100px;
+}
+.plant-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin:2rem auto;
+}
+.plant-container .plant-card {
+  text-align: center;
+  margin: 4% 4%;
+  /* padding: 100px; */
+  max-width: 700px;
+  background-color: #d1c6c6;
+  border-radius: 10px;
+
+}
+.plant-container .plant-card-content {
+    margin:1rem;
+}
+.plant-container .img-container{
+    height:400px;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-img {
-    
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        
-      
+.plant-container img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: auto;
 }
