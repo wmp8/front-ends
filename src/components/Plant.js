@@ -52,12 +52,13 @@ const Plant = (props) => {
           </div>
 
           <button>Edit</button>
-          <button>Update</button>
+          
         </div>
         
       </div>
     </div>
   );
-};
+
+  ;
 
 export default Plant;

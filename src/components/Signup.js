@@ -1,6 +1,8 @@
 // username phone number and password
 import React, { useState } from 'react';
 import { Form, Button, Input, Label, FormGroup } from 'reactstrap';
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 import './signup.css'
 
 
@@ -11,6 +13,7 @@ const initialData = {
 }
 
 export default function Signup() {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState(initialData)
 
     const handleChange = (e) => {
@@ -24,10 +27,25 @@ export default function Signup() {
     }
 
 
+    const handleSubmit = (e) => {
+      console.log('in submit')
+      e.preventDefault()
+      axios.post('https://wampl.herokuapp.com/api/auth/signup', formData)
+      .then(resp=> {
+        localStorage.setItem('token', resp.data.payload);
+        console.log('data', resp.data.payload)
+        navigate('/plantobj');
+      })
+      .catch(err=> {
+        
+        console.log(err);
+      })
+  }
+
     return (
       <>
       <h1>Sign Up</h1>
-      <Form className='container-fluid'>
+      <Form className='container-fluid' onSubmit={handleSubmit}>
         <FormGroup>
           <Label for='username'>
             Username

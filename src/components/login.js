@@ -3,15 +3,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Input, Label, FormGroup } from 'reactstrap';
 import './signup.css'
-
+import { useNavigate } from "react-router-dom";
 
 const initialData = {
   username: '',
-  phone: '',
   password: ''
 }
 
 export default function Login() {
+  const navigate = useNavigate()
     const [formData, setFormData] = useState(initialData)
 
     const handleChange = (e) => {
@@ -23,12 +23,25 @@ export default function Login() {
       }
       setFormData(newData)
     }
-
+    const handleSubmit = (e) => {
+      console.log('in submit')
+      e.preventDefault()
+      axios.post('https://wampl.herokuapp.com/api/auth/login', formData)
+      .then(resp=> {
+        localStorage.setItem('token', resp.data.payload);
+        console.log('data', resp.data.payload)
+        navigate('/plantobj');
+      })
+      .catch(err=> {
+        
+        console.log(err);
+      })
+  }
 
     return (
       <>
       <h1>Login</h1>
-      <Form className='container-fluid'>
+      <Form className='container-fluid' onSubmit={handleSubmit}>
         <FormGroup>
           <Label for='username'>
             Username
@@ -42,18 +55,7 @@ export default function Login() {
             id='username' />
         </FormGroup>
 
-        <FormGroup>
-          <Label for='phonenumber'>
-            Phone Number
-          </Label>
-          <Input 
-            name='phone'
-            onChange={handleChange}
-            value={formData.phone}
-            type='number'
-            placeholder='555-5555'
-            id='phonenumber' />
-        </FormGroup>
+  
 
         <FormGroup for='password'>
           <Label>
