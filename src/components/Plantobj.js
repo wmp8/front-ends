@@ -49,7 +49,7 @@ const Plantobj = () => {
     
     const elements = plants.map((plant) => {
         return (<div>
-            <img src={plant.image_url} alt={plant.nickname}/>
+            <img className="picture" src={plant.image_url} alt={plant.nickname}/>
             <button>Details</button>
             <button>Delete</button>
         </div>)
