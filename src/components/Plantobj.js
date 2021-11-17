@@ -69,8 +69,10 @@ const Plantobj = () => {
     }, [])
 
     const elements = plants.map((plant) => {
+
         return (<div key={plant.nickname}>
             <img src={plant.image_url} alt={plant.nickname}/>
+
             <button>Details</button>
             <button>Delete</button>
         </div>)
