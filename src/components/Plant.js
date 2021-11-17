@@ -3,52 +3,49 @@ import React, { useState } from "react";
 import "./plant.css";
 import axios from "axios";
 
-let plantData ={
-    "image_url": "marble-pothos.png",
-  "light_requirement": "Thrives in medium to low indirect light. Not suited for intense, direct sun.",
-  "nickname": "Marble Queen Pothos",
-  "plant_id": 1,
-  "species": "",
-  "user_id": 1,
-  "water_frequency": "Water every 1-2 weeks"
-}
-
+let plantData = {
+  image_url: "marble-pothos.png",
+  light_requirement:
+    "Thrives in medium to low indirect light. Not suited for intense, direct sun.",
+  nickname: "Marble Queen Pothos",
+  plant_id: 1,
+  species: "",
+  user_id: 1,
+  water_frequency: "Water every 1-2 weeks",
+};
+console.log(plantData);
 
 const Plant = (props) => {
-    const [data, setData] = useState(plantData)
-    
+  const [data, setData] = useState(plantData);
+
   return (
     <div className="plant-container">
       <h1>Plant Diaries</h1>
-     
-      <div className="plant-card">
-          <h3>Name:{data.nickname}</h3>
-          console.log(props.nickname);
-          
-        <div className="img-container">
-          <img src="https://images.pexels.com/photos/827518/pexels-photo-827518.jpeg?cs=srgb&dl=pexels-valeria-boltneva-827518.jpg&fm=jpg" />
-        </div>
-        <div className="plant-card-content">
-        <div className="text">
-          <p>
-            Contrary to popular belief, Lorem Ipsum is not simply random text.
-            It has roots in a piece of classical Latin literature from 45 BC,
-            making it over 2000 years old. Richard McClintock, a Latin professor
-            at Hampden-Sydney College in Virginia, looked up one of the more
-            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
-            going through the cites of the word in classical literature,
-            discovered the undoubtable source. Lorem Ipsum comes from sections
-            1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes
-            of Good and Evil) by Cicero, written in 45 BC. This book is a
-            treatise on the theory of ethics, very popular during the
-            Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-            amet..", comes from a line in section 1.10.32.
-          </p>
-        </div>
-        <button>Edit</button>
-        <button>Update</button>
 
+      <div className="plant-card">
+        <h3>Name: {data.nickname}</h3>
+
+        <div className="img-container">
+          <img src={data.image_url} />
         </div>
+        
+        <div className="plant-card-content">
+          <div className="text">
+            <p> Light Requirement: { data.light_requirement }</p>
+            <p>
+                Plant ID: {data.plant_id}
+            </p>
+
+            <p>
+                Species: {data.species}
+            </p>
+            <p>User-ID: {data.user_id}</p>
+            <p>Water frequency: {data.water_frequency}</p>
+          </div>
+          <button>Edit</button>
+          <button>Update</button>
+        </div>
+        
       </div>
     </div>
   );
