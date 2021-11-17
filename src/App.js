@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Signup from './components/Signup';
 import Landing from './components/Landing';
 import Login from './components/login';
+import Logout from './components/Logout';
 import { useState } from 'react';
 
 
@@ -34,6 +35,7 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Landing />}/>
             <Route exact path='/login' element={<Login />} />
+            <Route exact path='/logout' element={<Logout />} />
             <Route exact path='/signup' element={<Signup />} />
             <Route exact path='/plantobj' element={<Plantobj />} />
             <Route exact path='/plant' element={<Plant plant={plant}/>} />
