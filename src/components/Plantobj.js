@@ -1,6 +1,7 @@
 // list of created plants, plant can be deleted seleted to show details, update
 // 
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import axios from 'axios'
 import './plantObj.css'
 
 
@@ -43,12 +44,27 @@ const plantData = [
     }
 ]
 
+
+const getPlantData = async () => {
+    try {
+        const token = localStorage.getItem('token')
+        const config = {"Authorization": token}
+        const response = await axios.get('https://wampl.herokuapp.com/api/plants/all', config)
+        console.log(typeof token)
+    } catch (error){
+        console.error(error)
+    }
+}
+
 const Plantobj = () => {
 
     const [plants, setPlants] = useState(plantData)
+    useEffect(() => {
+        getPlantData()
+    }, [])
 
     const elements = plants.map((plant) => {
-        return (<div>
+        return (<div key={plant.nickname}>
             <img src={plant.image_url} alt={plant.nickname}/>
             <button>Details</button>
             <button>Delete</button>
