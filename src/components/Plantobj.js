@@ -46,7 +46,7 @@ const plantData = [
 const Plantobj = () => {
 
     const [plants, setPlants] = useState(plantData)
-    
+
     const elements = plants.map((plant) => {
         return (<div>
             <img src={plant.image_url} alt={plant.nickname}/>
@@ -54,7 +54,6 @@ const Plantobj = () => {
             <button>Delete</button>
         </div>)
     })
-
 
 
     return (
