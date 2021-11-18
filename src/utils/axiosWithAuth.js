@@ -6,7 +6,8 @@ const axiosWithAuth = () => {
     return axios.create({
         headers: {
             authorization: token
-        }
+        },
+        baseURL: 'https://wampl.herokuapp.com/api'
     })
 }
 
