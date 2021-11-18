@@ -12,7 +12,8 @@ h1 {
 
 img{
     width: 80%;
-    align-self: center
+    align-self: center;
+    margin: 2% 0 2% 0;
 }
 
 .cardButton {
