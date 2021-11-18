@@ -10,3 +10,8 @@
 h1 {
     text-align: center;
 }
+
+.error {
+    color: crimson;
+    font-weight: bold;
+}
