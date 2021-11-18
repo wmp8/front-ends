@@ -52,7 +52,7 @@ const NavBar = () => {
       </div>
       {/* Mobile Nav */}
       <div className="mobile">
-         <img className="hamburger" src={ mobile } onClick={toggleHamburger} />
+         <img className="hamburger" alt="hamburger" src={ mobile } onClick={toggleHamburger} />
         <ul style={style} className="mobile-links">
           <Link to="/">
             <li>Home</li>
@@ -66,7 +66,7 @@ const NavBar = () => {
             <li>Log In </li>
           </Link>
 
-          <Link to="/logout>">
+          <Link to="/logout">
             <li>Log Out</li>
           </Link>
         </ul>
