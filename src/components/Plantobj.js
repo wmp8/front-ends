@@ -19,7 +19,8 @@ const Plantobj = ({ plants, getPlant }) => {
         {
             plants ? plants.map((plant) => (
                 <div className='card' key={plant.nickname}>
-                    <img src={plant.image_url} alt={plant.nickname}/>
+                    <img src={plant.image_url} alt={plant.nickname}/> 
+                    <h3>{plant.nickname}</h3>
 
                     <button className='cardButton'onClick={() => handleDetailClick(plant.plant_id)}>Details</button>
                     <button className='cardButton'>Delete</button>
