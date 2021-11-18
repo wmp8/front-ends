@@ -10,7 +10,7 @@ const initialData = {
   password: ''
 }
 
-export default function Login() {
+export default function Login({ changeLoggedIn }) {
   const navigate = useNavigate()
     const [formData, setFormData] = useState(initialData)
 
@@ -28,7 +28,9 @@ export default function Login() {
       e.preventDefault()
       axios.post('https://wampl.herokuapp.com/api/auth/login', formData)
       .then(resp=> {
-        localStorage.setItem('token', resp.data.payload);
+        console.log('LOGIN', resp.data.token)
+        localStorage.setItem('token', resp.data.token);
+        changeLoggedIn(true)
         console.log('data', resp.data.payload)
         navigate('/plantobj');
       })

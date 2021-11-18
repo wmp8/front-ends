@@ -43,7 +43,7 @@ const NavBar = () => {
             </button>
           </Link>
 
-          <Link to="/logout>">
+          <Link to="/logout">
             <button className="d-btn">
               <li>Log Out</li>
             </button>
