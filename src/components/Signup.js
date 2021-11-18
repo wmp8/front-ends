@@ -84,7 +84,7 @@ export default function Signup() {
             placeholder='6 character minimum'
             id='password' />
         </FormGroup>
-      <Button className='button'>Submit</Button>
+      <Button className='button' onClick={handleSubmit}>Submit</Button>
 
         </Form>
       </>

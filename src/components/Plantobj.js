@@ -68,13 +68,27 @@ const Plantobj = () => {
         getPlantData(setPlants)
     }, [])
 
+
+    const handleDelete = (plant_id) =>{
+        axios.delete(`https://wampl.herokuapp.com/api/plants/delete/${plant_id}`)
+        .then(resp => {
+            // console.log(resp);
+            setPlants(resp.data)
+        })
+        .catch(err=> {
+            console.log('your delete aint working!');
+        })
+    }
+
     const elements = plants.map((plant) => {
+
+
 
         return (<div key={plant.nickname}>
             <img src={plant.image_url} alt={plant.nickname}/>
 
             <button>Details</button>
-            <button>Delete</button>
+            <button onClick={handleDelete}>Delete</button>
         </div>)
     })
 

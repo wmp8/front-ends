@@ -14,7 +14,7 @@ const NavBar = () => {
 
             <span className='navbar-toggler-icon'></span>
 
-  
+            </button>
 
         <button
           class="navbar-toggler"
@@ -24,7 +24,7 @@ const NavBar = () => {
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse"  id="navBarMenu" id="collasible-nav-dropdown">
+        <div className="collapse navbar-collapse"  id="navBarMenu">
         <ul className="navbar-nav">
           <li className="nav-item">
             <Link to="/signup"><button className="nav-link"> Signup </button></Link>
@@ -35,9 +35,9 @@ const NavBar = () => {
           </li>
         </ul>
 
-        </nav>
+
         </div>
-      
+      </nav>
     </div>
   );
 };
