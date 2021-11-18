@@ -2,11 +2,11 @@ import React, { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import axiosWithAuth from '../utils/axiosWithAuth'
 
-const Logout = ()=> {
+const Logout = ({changeLoggedIn})=> {
     const history = useNavigate();
 
     useEffect(()=> {
-        
+                changeLoggedIn(false)
                 localStorage.removeItem('token')
                 history('/')
             });
