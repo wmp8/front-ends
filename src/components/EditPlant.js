@@ -4,21 +4,66 @@ import axiosWithAuth from '../utils/axiosWithAuth'
 import { Link } from 'react-router-dom';
 
 
-const EditPlant = (props)=> {
-    useEffect(() => {
-        axiosWithAuth()
-        .get(`/plants/:plant_id`)
-        .then(resp=> {
-         
-        })
-        .catch(err=> {
-          console.log(err);
-        })
-      },[])
+const EditPlant = ({plant, getPlant,updatePlants})=> {
+  const [formData, setFormData] = useState({
+    light_requirement: plant.light_requirement ? plant.light_requirement : '',
+    species: plant.species ? plant.species : '',
+    water_frequency: plant.water_frequency ? plant.water_frequency : '',
+    nickname: plant.nickname ? plant.nickname : ''
+  })
+  const navigate = useNavigate()
+
+  const handleChange = (e) => {
+    setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+    });
+    console.log('FORM DATA', formData)
+}
+
+const handleSubmit = (e) => {
+  e.preventDefault()
+  axiosWithAuth()
+ .put(`plants/update/${plant.plant_id}`, formData)
+    .then(resp=> {
+      updatePlants()
+     navigate(`/plants/${plant.plant_id}`);
+
+    })
+    .catch(err=> {
+      console.log(err);
+    })
+}
 
       return(
-          <h1>edit form</h1>
-      )
+        <div className="col">
+        <div className="modal-content">
+          <form onSubmit={handleSubmit}>
+            <div className="modal-header">						
+              <h4 className="modal-title">plant name <strong>{plant.nickname}</strong></h4>
+            </div>
+            <div className="modal-body">					
+              <div className="form-group">
+                <label>Light</label>
+                <input value={formData.light_requirement} onChange={handleChange} name="light_requirement" type="text" className="form-control"/>
+              </div>
+              <div className="form-group">
+                <label>Species</label>
+                <input value={formData.species} onChange={handleChange} name="species" type="text" className="form-control"/>
+              </div>
+              <div className="form-group">
+                <label>Water</label>
+                <input value={formData.water_frequency} onChange={handleChange} name="water_frequency" type="text" className="form-control"/>
+              </div>       
+            </div>
+            <div className="modal-footer">			    
+              <input type="submit" className="btn btn-info" value="Save"/>
+              <Link to={`/plant`}><input type="button" className="btn btn-default" value="Cancel"/></Link>
+            </div>
+          </form>
+          </div>
+	</div>);
+      
 }
 
 export default EditPlant;

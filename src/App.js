@@ -89,7 +89,7 @@ function App() {
               </PrivateRoute>
                 }
             />
-            <Route exact path='/edit' element={<EditPlant updatePlants={updatePlants}/>}/>
+            <Route exact path='/edit' element={<EditPlant plant={plant} updatePlants={updatePlants}/>}/>
           </Routes>
       </div>
     );

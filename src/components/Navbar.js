@@ -42,6 +42,11 @@ const NavBar = () => {
               <li>Log In </li>
             </button>
           </Link>
+          <Link to="/plantobj">
+            <button className="d-btn">
+              <li>My Plants </li>
+            </button>
+          </Link>
 
           <Link to="/logout">
             <button className="d-btn">
@@ -68,6 +73,9 @@ const NavBar = () => {
 
           <Link to="/logout">
             <li>Log Out</li>
+          </Link>
+          <Link to="/plantobj">
+            <li>My Plants</li>
           </Link>
         </ul>
       </div>
