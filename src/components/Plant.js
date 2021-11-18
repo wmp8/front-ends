@@ -1,11 +1,16 @@
 // plant has id: integer ,nickname: string  ,species: string h2o frequency:Type determined by implementation, image
 import React  from "react";
 import "./plant.css";
+import { useNavigate } from 'react-router-dom';
 
 
+const Plant = ({ plant, getPlant }) => {
+  const navigate = useNavigate()
 
-const Plant = ({ plant }) => {
-  
+  const handleEditClick = (id) => {
+    getPlant(id)
+    navigate('/edit')
+}
   return (
     plant ?
     <div className="plant-container">
@@ -50,7 +55,7 @@ const Plant = ({ plant }) => {
             </div>
           </div>
 
-          <button>Edit</button>
+          <button onClick={() => handleEditClick(plant.plant_id)}>Edit</button>
         </div>
       </div>
     </div> : null

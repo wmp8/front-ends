@@ -85,7 +85,7 @@ function App() {
               exact path='/plant' 
               element={
               <PrivateRoute>
-                <Plant updatePlants={updatePlants} plant={plant}/>
+                <Plant updatePlants={updatePlants} plant={plant} getPlant={getPlant}/>
               </PrivateRoute>
                 }
             />
