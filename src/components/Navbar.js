@@ -1,52 +1,77 @@
 // home signup, login/logout, addPlant, update personal
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
+import  mobile from "./menu-icon.svg";
 
 const NavBar = () => {
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+
+  const toggleHamburger = () => {
+    setHamburgerOpen(!hamburgerOpen);
+  };
+
+  let style = {
+    display: "none",
+  }
+
+  if (hamburgerOpen === true ) {
+    style.display = "";
+  }
+
+
+
   return (
+    <div className="navigation">
+      <div className="desktop">
+        <ul className="links">
+          <Link to="/">
+            <button className="d-btn">
+              <li>Home</li>
+            </button>
+          </Link>
 
+          <Link to="/signup">
+            <button className="d-btn">
+              <li>Sign Up</li>
+            </button>
+          </Link>
 
+          <Link to="/login">
+            <button className="d-btn">
+              <li>Log In </li>
+            </button>
+          </Link>
 
-    <div className="header">
-      <nav className="navbar navbar-expand-sm navbar-light bg-myRed">
-        <Link to="/"><button className="navbar-brand">Home</button></Link>
-         
-        <button className="navbar-toggler" data-toggle="collapse" data-target='#navBarMenu'>
-
-            <span className='navbar-toggler-icon'></span>
-
-  
-
-
-      <nav class=" col-lg-12 navbar navbar-expand-md navbar-dark pt-2 pb-2 bg-myRed">
-        <Link to="/"><button class="nav-link"> Home </button></Link>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navBarMenu"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-
-        <div className="collapse navbar-collapse"  id="navBarMenu" id="collasible-nav-dropdown">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <Link to="/signup"><button className="nav-link"> Signup </button></Link>
-          </li>
-          <li className="nav-item">
-          <Link to="/login"><button className="nav-link"> Login </button></Link>
-
-          </li>
+          <Link to="/logout>">
+            <button className="d-btn">
+              <li>Log Out</li>
+            </button>
+          </Link>
         </ul>
+      </div>
+      {/* Mobile Nav */}
+      <div className="mobile">
+         <img className="hamburger" src={ mobile } onClick={toggleHamburger} />
+        <ul style={style} className="mobile-links">
+          <Link to="/">
+            <li>Home</li>
+          </Link>
 
+          <Link to="/signup">
+            <li>Sign Up</li>
+          </Link>
 
+          <Link to="/login">
+            <li>Log In </li>
+          </Link>
 
-        </div>
-      </nav>
-   </div>
+          <Link to="/logout>">
+            <li>Log Out</li>
+          </Link>
+        </ul>
+      </div>
+    </div>
   );
 };
 
