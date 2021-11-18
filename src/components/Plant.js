@@ -1,43 +1,26 @@
 // plant has id: integer ,nickname: string  ,species: string h2o frequency:Type determined by implementation, image
-import React, { useState } from "react";
+import React  from "react";
 import "./plant.css";
-import axios from "axios";
 
-let plantData = {
-  image_url: "/images/marble-pothos.png",
-  light_requirement:
-    "Thrives in medium to low indirect light. Not suited for intense, direct sun.",
-  nickname: "Marble Queen Pothos",
-  plant_id: 1,
-  species: "",
-  user_id: 1,
-  water_frequency: "Water every 1-2 weeks",
-};
-console.log(plantData);
 
-const Plant = () => {
-  const [data, setData] = useState(plantData);
 
-  axios
-    .get("https://github.com/wmp8/back-ends#get-apiplantsplant_id")
-    .then((res) => {})
-    .catch((err) => {});
+const Plant = ({ plant }) => {
   
-
   return (
+    plant ?
     <div className="plant-container">
       <h1>Plant Diaries</h1>
 
       <div className="plant-card">
         <div className="topPlant">
 
-          <h3>Name: {data.nickname}</h3>
+          <h3>Name: {plant.nickname}</h3>
 
           <div className="img-container">
             <img
               className="plantImg"
-              src={data.image_url}
-              alt={data.nickname}
+              src={plant.image_url}
+              alt={plant.nickname}
             />
           </div>
         </div>
@@ -45,24 +28,24 @@ const Plant = () => {
         <div className="plant-card-content">
           <div className="text">
             <div className="plantText">
-              <p> Light Requirement: {data.light_requirement}</p>
+              <p> Light Requirement: {plant.light_requirement}</p>
             </div>
 
             <div className="plantText">
-              <p>Plant ID: {data.plant_id}</p>
+              <p>Plant ID: {plant.plant_id}</p>
             </div>
 
             <div className="plantText">
-              <p>Species: {data.species}</p>
+              <p>Species: {plant.species}</p>
             </div>
 
             <div className="plantText">
-              <p>User-ID: {data.user_id}</p>
+              <p>User-ID: {plant.user_id}</p>
             </div>
 
             <div className="plantText">
               <div className="water">
-                <p>Water frequency: {data.water_frequency}</p>
+                <p>Water frequency: {plant.water_frequency}</p>
               </div>
             </div>
           </div>
@@ -70,7 +53,7 @@ const Plant = () => {
           <button>Edit</button>
         </div>
       </div>
-    </div>
+    </div> : null
   );
 };
 

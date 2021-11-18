@@ -1,10 +1,16 @@
 // list of created plants, plant can be deleted seleted to show details, update
 // 
 import React, {useState, useEffect} from "react";
-import axios from 'axios'
 import './plantObj.css'
+import { useNavigate } from 'react-router-dom';
 
-const Plantobj = ({ plants }) => {
+const Plantobj = ({ plants, getPlant }) => {
+    const navigate = useNavigate()
+
+    const handleDetailClick = (id) => {
+        getPlant(id)
+        navigate('/plant')
+    }
 
     return (
         <>
@@ -15,7 +21,7 @@ const Plantobj = ({ plants }) => {
                 <div className='card' key={plant.nickname}>
                     <img src={plant.image_url} alt={plant.nickname}/>
 
-                    <button className='cardButton'>Details</button>
+                    <button className='cardButton'onClick={() => handleDetailClick(plant.plant_id)}>Details</button>
                     <button className='cardButton'>Delete</button>
                 </div>
             )) : null
