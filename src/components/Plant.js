@@ -22,6 +22,7 @@ const Plant = () => {
     .get("https://github.com/wmp8/back-ends#get-apiplantsplant_id")
     .then((res) => {})
     .catch((err) => {});
+  
 
   return (
     <div className="plant-container">
@@ -29,7 +30,7 @@ const Plant = () => {
 
       <div className="plant-card">
         <div className="topPlant">
-          
+
           <h3>Name: {data.nickname}</h3>
 
           <div className="img-container">
