@@ -21,9 +21,20 @@
   background-color: B6AD90;
 }
 
+.mobile {
+    float:right;
+    padding-top: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    
+}
+
 @media (min-width: 769px) {
   .mobile {
     display: none;
+    z-index: -1;
   }
 }
 
@@ -40,17 +51,25 @@
 
 }
 }
-.mobile {
-    display:flex;
-    
-}
+
 .hamburger {
-    width: 30px;
+    width: 41px;
+    padding-bottom: 3px;
+    margin-left: 52px;
 }
+
+.mobile-links {
+    padding-bottom: 4px;
+    min-width: 23px;
+}
+
+
 
 .mobile-links li {
     list-style-type: none;
     background-color: #656D4A;
     color:whitesmoke;
 text-align: center;
+padding: 18px;
+    justify-content: space-around;
 }
