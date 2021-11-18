@@ -10,9 +10,16 @@ const initialData = {
   password: ''
 }
 
+const initialState = {
+  error: '',
+  loading: false
+}
+
 export default function Login({ changeLoggedIn }) {
   const navigate = useNavigate()
     const [formData, setFormData] = useState(initialData)
+    const [state, setState] = useState(initialState)
+
 
     const handleChange = (e) => {
       const name = e.target.name
@@ -35,8 +42,11 @@ export default function Login({ changeLoggedIn }) {
         navigate('/plantobj');
       })
       .catch(err=> {
-        
         console.log(err);
+        setState({
+          ...state,
+          error: `Not a match: ${err.response.data.message}`
+        });
       })
   }
 
@@ -72,8 +82,10 @@ export default function Login({ changeLoggedIn }) {
             id='password' />
         </FormGroup>
       <Button className='button'>Submit</Button>
+      <p className='error' id='error'>{state.error}</p>
 
         </Form>
       </>
     );
   }
+  
