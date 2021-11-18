@@ -64,17 +64,18 @@ const getPlantData = async (plantUpdater) => {
 const Plantobj = () => {
 
     const [plants, setPlants] = useState(plantData)
+
     useEffect(() => {
         getPlantData(setPlants)
     }, [])
 
     const elements = plants.map((plant) => {
 
-        return (<div key={plant.nickname}>
+        return (<div className='card' key={plant.nickname}>
             <img src={plant.image_url} alt={plant.nickname}/>
 
-            <button>Details</button>
-            <button>Delete</button>
+            <button className='cardButton'>Details</button>
+            <button className='cardButton'>Delete</button>
         </div>)
     })
 
