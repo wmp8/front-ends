@@ -1,3 +1,19 @@
 .picture {
     max-height: 100px;
 }
+
+.card {
+    display: flex;
+}
+
+img{
+    width: 80%;
+    align-self: center
+}
+
+.cardButton {
+    display: inline-block;
+    width: 50%;
+    justify-content: center;
+    align-self: center;
+}
