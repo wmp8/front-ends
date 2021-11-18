@@ -26,8 +26,9 @@ const handleSubmit = (e) => {
   axiosWithAuth()
  .put(`plants/update/${plant.plant_id}`, formData)
     .then(resp=> {
-      updatePlants()
-     navigate(`/plants/${plant.plant_id}`);
+      	updatePlants()
+	getPlant(plant.plant_id)
+     	navigate(`/plant`);
 
     })
     .catch(err=> {
