@@ -1,19 +1,17 @@
 // username phone number and password
 import React, { useState } from 'react';
-import { Form, Button, Input, Label, FormGroup } from 'reactstrap';
-import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { Form, Button, Input, Label, FormGroup } from 'reactstrap';
 import './signup.css'
-
+import { useNavigate } from "react-router-dom";
 
 const initialData = {
   username: '',
-  phone: '',
   password: ''
 }
 
-export default function Signup() {
-    const navigate = useNavigate()
+export default function Login() {
+  const navigate = useNavigate()
     const [formData, setFormData] = useState(initialData)
 
     const handleChange = (e) => {
@@ -25,12 +23,10 @@ export default function Signup() {
       }
       setFormData(newData)
     }
-
-
     const handleSubmit = (e) => {
       console.log('in submit')
       e.preventDefault()
-      axios.post('https://wampl.herokuapp.com/api/auth/signup', formData)
+      axios.post('https://wampl.herokuapp.com/api/auth/login', formData)
       .then(resp=> {
         localStorage.setItem('token', resp.data.payload);
         console.log('data', resp.data.payload)
@@ -44,7 +40,7 @@ export default function Signup() {
 
     return (
       <>
-      <h1>Sign Up</h1>
+      <h1>Login</h1>
       <Form className='container-fluid' onSubmit={handleSubmit}>
         <FormGroup>
           <Label for='username'>
@@ -59,18 +55,7 @@ export default function Signup() {
             id='username' />
         </FormGroup>
 
-        <FormGroup>
-          <Label for='phonenumber'>
-            Phone Number
-          </Label>
-          <Input 
-            name='phone'
-            onChange={handleChange}
-            value={formData.phone}
-            type='number'
-            placeholder='555-5555'
-            id='phonenumber' />
-        </FormGroup>
+  
 
         <FormGroup for='password'>
           <Label>
