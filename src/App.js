@@ -25,13 +25,15 @@ let plant = {
 }
 
 
-function App() {
 
+
+function App() {
+  const [open, setOpen] = useState('False')
  
     return (
       <div className='App'>
         <BrowserRouter>
-          <NavBar />
+          <NavBar open={open} setOpen={setOpen}/>
           <Routes>
             <Route exact path='/' element={<Landing />}/>
             <Route exact path='/login' element={<Login />} />

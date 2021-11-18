@@ -15,10 +15,10 @@ let plantData = {
 };
 console.log(plantData);
 
-const Plant = (props) => {
+const Plant = () => {
   const [data, setData] = useState(plantData);
 
-  axios.get('id="collasible-nav-dropdown">')
+  axios.get('https://github.com/wmp8/back-ends#get-apiplantsplant_id')
   .then((res) => {
       
   })
@@ -59,6 +59,6 @@ const Plant = (props) => {
     </div>
   );
 
-  ;
+};
 
-export default Plant;
+export default Plant

@@ -1,10 +1,56 @@
-.bg-myRed{
-    background-color: #C2C5AA;
-    width:100%;
-
+.bg-myRed {
+  background-color: #c2c5aa;
+  width: 100%;
+}
+.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 1.5rem;
+  list-style-type: none;
+  
+}
+.d-btn {
+  background-color: #a4ac86;
 }
 
-button{
-    background-color: #A4AC86;
+.navigation {
+  width: 100%;
+  height: 90px;
+  background-color: B6AD90;
+}
 
+@media (min-width: 769px) {
+  .mobile {
+    display: none;
+  }
+}
+
+/* Mobile Design */
+
+@media (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+
+  .navigation {
+    height: 40px;
+    background-color: #B6AD90;
+
+}
+}
+.mobile {
+    display:flex;
+    
+}
+.hamburger {
+    width: 30px;
+}
+
+.mobile-links li {
+    list-style-type: none;
+    background-color: #656D4A;
+    color:whitesmoke;
+text-align: center;
 }
