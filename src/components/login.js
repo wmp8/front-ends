@@ -35,10 +35,9 @@ export default function Login({ changeLoggedIn }) {
       e.preventDefault()
       axios.post('https://wampl.herokuapp.com/api/auth/login', formData)
       .then(resp=> {
-        console.log('LOGIN', resp.data.token)
+        console.log('LOGIN', resp.data)
         localStorage.setItem('token', resp.data.token);
         changeLoggedIn(true)
-        console.log('data', resp.data.payload)
         navigate('/plantobj');
       })
       .catch(err=> {
