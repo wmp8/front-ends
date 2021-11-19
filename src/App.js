@@ -77,7 +77,7 @@ function App() {
               path="/plantobj"
               element={
                 <PrivateRoute>
-                  <Plantobj plants={plants} getPlant={getPlant}/>
+                  <Plantobj plants={plants} getPlant={getPlant} updatePlants={updatePlants}/>
                 </PrivateRoute>
               }
             />

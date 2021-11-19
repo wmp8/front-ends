@@ -19,7 +19,6 @@ const Plantobj = ({ plants, getPlant, updatePlants}) => {
         axiosWithAuth()
         .delete(`/plants/delete/${id}`)
         .then(resp=> {
-            navigate('/plantobj');
             updatePlants()
             setNewPlants(resp.data)
          })
@@ -35,7 +34,7 @@ const Plantobj = ({ plants, getPlant, updatePlants}) => {
         </Link>
         <section>
         {
-            plants ? plants.map((plant) => (
+            plants && !plants.message ? plants.map((plant) => (
                 <div className='card' key={plant.nickname}>
                     <img src={plant.image_url} alt={plant.nickname}/> 
                     <h3>{plant.nickname}</h3>
