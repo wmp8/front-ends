@@ -17,7 +17,8 @@ const CreatePlant = ({ updatePlants })=> {
       light_requirement: '',
       species: '',
       water_frequency: '',
-      nickname: ''
+      nickname: '',
+      image_url: ''
     })
     const [state, setState] = useState(initialState)
     const navigate = useNavigate()
@@ -55,7 +56,15 @@ const CreatePlant = ({ updatePlants })=> {
               <div className="modal-header">						
                 <h4 className="modal-title">New Plant</h4>
               </div>
-              <div className="modal-body">					
+              <div className="modal-body">
+              <div className="form-group">
+                  <label>Name</label>
+                  <input value={formData.nickname} onChange={handleChange} name="nickname" type="text" className="form-control"/>
+              </div>
+              <div className="form-group">
+                  <label>Image URL</label>
+                  <input value={formData.image_url} onChange={handleChange} name="image_url" type="text" className="form-control"/>
+              </div>						
                 <div className="form-group">
                   <label>Light</label>
                   <input value={formData.light_requirement} onChange={handleChange} name="light_requirement" type="text" className="form-control"/>
