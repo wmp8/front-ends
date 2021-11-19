@@ -24,7 +24,7 @@
   border-radius: 10px;
 }
 .plant-card-content {
-  display: flex;
+
   flex-wrap: wrap;
 }
 
@@ -44,7 +44,7 @@
 /*Plant Text */
 .text {
   display: flex;
-  padding: 25px;
+  
   justify-content: space-between;
 
   background-color: rgba(216, 209, 168, 0.4);
