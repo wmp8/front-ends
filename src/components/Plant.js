@@ -40,30 +40,47 @@ const Plant = ({ plant, getPlant }) => {
         <div className="plant-card-content">
           <div className="text">
             <div className="plantText">
+              <h4> Light Requirement: </h4>
+              <p>{plant.light_requirement}</p>
+            </div>
+
+            <div className="plantText">
+              <h4>Plant ID: </h4>
+              <p>{plant.plant_id}</p>
+            </div>
+
+            <div className="plantText">
+              <h4>Species: </h4>
+              <p>{plant.species}</p>
+            </div>
+
+            <div className="plantText">
+              <h4>User-ID: </h4>
+              <p>{plant.user_id}</p>
 
               <p> Light Requirement: </p>
               <p>{plant.light_requirement}</p>
             </div>
 
             <div className="plantText">
-              <p>Plant ID: </p>
+              <h4>Plant ID: </h4>
               <p>{plant.plant_id}</p>
             </div>
 
             <div className="plantText">
-              <p>Species: </p>
+              <h4>Species: </h4>
               <p>{plant.species}</p>
             </div>
 
             <div className="plantText">
-              <p>User-ID: </p>
+              <h4>User-ID: </h4>
               <p>{plant.user_id}</p>
             </div>
 
             <div className="plantText">
               <div className="water">
 
-                <p>Water frequency: </p>
+                <h4>Water frequency: </h4>
                 <p>{plant.water_frequency}</p>
 
               </div>
