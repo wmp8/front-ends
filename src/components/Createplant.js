@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth'
 import { Link } from 'react-router-dom';
-
+import './createplant.css'
 const initialState = {
   error: '',
   loading: false
