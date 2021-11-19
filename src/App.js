@@ -14,7 +14,7 @@ import axiosWithAuth from './utils/axiosWithAuth';
 
 import './App.css'
 
-
+const auth = localStorage.getItem("token")
 
 
 
@@ -50,7 +50,7 @@ function App() {
   }
 
   useEffect(()=>{
-    if (isLoggedIn) {
+     if (isLoggedIn || auth) {
       console.log('AM I HERE?')
       getPlants()
     }
