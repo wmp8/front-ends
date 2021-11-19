@@ -22,13 +22,26 @@ import './App.css'
 function App() {
   const [open, setOpen] = useState('False')
   const [plants, setPlants] = useState();
+  const [plant, setPlant] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
    const getPlants =() => {
     axiosWithAuth()
-    .get(`/plants/all`)
+    .get(`/plants`)
     .then(resp=> {
       setPlants(resp.data);
+      console.log('appjs', resp.data);
+    })
+    .catch(err=> {
+      console.log(err);
+    })
+  }
+
+  const getPlant = (id) => {
+    axiosWithAuth()
+    .get(`plants/${id}`)
+    .then(resp=> {
+      setPlant(resp.data);
       console.log('appjs', resp.data);
     })
     .catch(err=> {
@@ -64,7 +77,7 @@ function App() {
               path="/plantobj"
               element={
                 <PrivateRoute>
-                  <Plantobj plants={plants}/>
+                  <Plantobj plants={plants} getPlant={getPlant}/>
                 </PrivateRoute>
               }
             />
@@ -72,15 +85,14 @@ function App() {
               exact path='/plant' 
               element={
               <PrivateRoute>
-                <Plant updatePlants={updatePlants}/>
+                <Plant updatePlants={updatePlants} plant={plant} getPlant={getPlant}/>
               </PrivateRoute>
                 }
             />
-            <Route exact path='/edit' element={<EditPlant updatePlants={updatePlants}/>}/>
+            <Route exact path='/edit' element={<EditPlant plant={plant} getPlant={getPlant} updatePlants={updatePlants}/>}/>
           </Routes>
       </div>
     );
   }
   
-  export default App;
-  
+  export default App;  

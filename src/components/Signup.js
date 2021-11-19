@@ -12,9 +12,16 @@ const initialData = {
   password: ''
 }
 
+const initialState = {
+  error: '',
+  loading: false
+}
+
 export default function Signup() {
     const navigate = useNavigate()
     const [formData, setFormData] = useState(initialData)
+    const [state, setState] = useState(initialState)
+
 
     const handleChange = (e) => {
       const name = e.target.name
@@ -37,8 +44,11 @@ export default function Signup() {
         navigate('/plantobj');
       })
       .catch(err=> {
-        
         console.log(err);
+        setState({
+          ...state,
+          error: `!ERROR: ${err.response.data.message}`
+        });
       })
   }
 
@@ -85,8 +95,9 @@ export default function Signup() {
             id='password' />
         </FormGroup>
       <Button className='button' onClick={handleSubmit}>Submit</Button>
-
+      <p className='error' id='error'>{state.error}</p>
         </Form>
       </>
     );
   }
+  
