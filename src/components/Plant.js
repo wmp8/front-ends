@@ -45,36 +45,13 @@ const Plant = ({ plant, getPlant }) => {
             </div>
 
             <div className="plantText">
-              <h4>Plant ID: </h4>
-              <p>{plant.plant_id}</p>
-            </div>
-
-            <div className="plantText">
               <h4>Species: </h4>
               <p>{plant.species}</p>
             </div>
 
             <div className="plantText">
-              <h4>User-ID: </h4>
-              <p>{plant.user_id}</p>
-
-              <p> Light Requirement: </p>
-              <p>{plant.light_requirement}</p>
-            </div>
-
-            <div className="plantText">
-              <h4>Plant ID: </h4>
-              <p>{plant.plant_id}</p>
-            </div>
-
-            <div className="plantText">
               <h4>Species: </h4>
               <p>{plant.species}</p>
-            </div>
-
-            <div className="plantText">
-              <h4>User-ID: </h4>
-              <p>{plant.user_id}</p>
             </div>
 
             <div className="plantText">
