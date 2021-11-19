@@ -1,7 +1,8 @@
 // plant has id: integer ,nickname: string  ,species: string h2o frequency:Type determined by implementation, image
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./plant.css";
 import axios from "axios";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 let plantData = {
   image_url: "/images/marble-pothos.png",
@@ -18,11 +19,21 @@ console.log(plantData);
 const Plant = () => {
   const [data, setData] = useState(plantData);
 
-  axios
-    .get("https://github.com/wmp8/back-ends#get-apiplantsplant_id")
-    .then((res) => {})
-    .catch((err) => {});
-  
+  useEffect(() => {
+    fetchPlant();
+  }, []);
+
+  const fetchPlant = () => {
+    axiosWithAuth()
+      .get("/api/plants/:plant_id")
+      .then((res) => {
+        console.log(res);
+        // setData(res.data)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="plant-container">
@@ -30,7 +41,6 @@ const Plant = () => {
 
       <div className="plant-card">
         <div className="topPlant">
-
           <h3>Name: {data.nickname}</h3>
 
           <div className="img-container">
@@ -45,29 +55,34 @@ const Plant = () => {
         <div className="plant-card-content">
           <div className="text">
             <div className="plantText">
-              <p> Light Requirement: {data.light_requirement}</p>
+              <p> Light Requirement: </p>
+              <p>{data.light_requirement}</p>
             </div>
 
             <div className="plantText">
-              <p>Plant ID: {data.plant_id}</p>
+              <p>Plant ID: </p>
+              <p>{data.plant_id}</p>
             </div>
 
             <div className="plantText">
-              <p>Species: {data.species}</p>
+              <p>Species: </p>
+              <p>{data.species}</p>
             </div>
 
             <div className="plantText">
-              <p>User-ID: {data.user_id}</p>
+              <p>User-ID: </p>
+              <p>{data.user_id}</p>
             </div>
 
             <div className="plantText">
               <div className="water">
-                <p>Water frequency: {data.water_frequency}</p>
+                <p>Water frequency: </p>
+                <p>{data.water_frequency}</p>
               </div>
             </div>
           </div>
 
-          <button>Edit</button>
+          <button className="p-btn">Edit</button>
         </div>
       </div>
     </div>
