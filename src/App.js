@@ -27,7 +27,7 @@ function App() {
 
    const getPlants =() => {
     axiosWithAuth()
-    .get(`/plants/all`)
+    .get(`/plants`)
     .then(resp=> {
       setPlants(resp.data);
       console.log('appjs', resp.data);
