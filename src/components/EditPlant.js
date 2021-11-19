@@ -3,6 +3,10 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth'
 import { Link } from 'react-router-dom';
 
+const initialState = {
+  error: '',
+  loading: false
+}
 
 const EditPlant = ({plant, getPlant,updatePlants})=> {
   const [formData, setFormData] = useState({
@@ -11,6 +15,7 @@ const EditPlant = ({plant, getPlant,updatePlants})=> {
     water_frequency: plant.water_frequency ? plant.water_frequency : '',
     nickname: plant.nickname ? plant.nickname : ''
   })
+  const [state, setState] = useState(initialState)
   const navigate = useNavigate()
 
   const handleChange = (e) => {
@@ -26,13 +31,17 @@ const handleSubmit = (e) => {
   axiosWithAuth()
  .put(`plants/update/${plant.plant_id}`, formData)
     .then(resp=> {
-      	updatePlants()
-	getPlant(plant.plant_id)
+      updatePlants()
+	    getPlant(plant.plant_id)
      	navigate(`/plant`);
 
     })
     .catch(err=> {
       console.log(err);
+      setState({
+        ...state,
+        error: `ERROR: ${err.response.data.message}`
+      });
     })
 }
 
@@ -57,7 +66,8 @@ const handleSubmit = (e) => {
                 <input value={formData.water_frequency} onChange={handleChange} name="water_frequency" type="text" className="form-control"/>
               </div>       
             </div>
-            <div className="modal-footer">			    
+              <div className="modal-footer">
+                <p className='error' id='error'>{state.error}</p>
               <input type="submit" className="btn btn-info" value="Save"/>
               <Link to={`/plant`}><input type="button" className="btn btn-default" value="Cancel"/></Link>
             </div>
