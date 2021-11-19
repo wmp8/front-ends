@@ -4,6 +4,7 @@ import React, {useState, useEffect} from "react";
 import './plantObj.css'
 import { useNavigate } from 'react-router-dom';
 import axiosWithAuth from "../utils/axiosWithAuth";
+import { Link } from 'react-router-dom';
 
 const Plantobj = ({ plants, getPlant, updatePlants}) => {
     const navigate = useNavigate()
@@ -29,6 +30,9 @@ const Plantobj = ({ plants, getPlant, updatePlants}) => {
     return (
         <>
         <h1>Your Plants</h1>
+        <Link to='/new'>
+        <button >Add New Plant</button>
+        </Link>
         <section>
         {
             plants ? plants.map((plant) => (

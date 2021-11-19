@@ -11,7 +11,7 @@ import NavBar  from "./components/Navbar";
 import Plantobj from './components/Plantobj';
 import Plant from './components/Plant';
 import axiosWithAuth from './utils/axiosWithAuth';
-
+import CreatePlant from './components/Createplant';
 import './App.css'
 
 const auth = localStorage.getItem("token")
@@ -90,6 +90,7 @@ function App() {
                 }
             />
             <Route exact path='/edit' element={<EditPlant plant={plant} getPlant={getPlant} updatePlants={updatePlants}/>}/>
+            <Route exact path='/new' element={<CreatePlant plant={plant} getPlant={getPlant} updatePlants={updatePlants}/>}/>
           </Routes>
       </div>
     );
