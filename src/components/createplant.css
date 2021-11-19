@@ -1,0 +1,14 @@
+.btn{
+    width: 10vh;
+    margin-bottom: 1%;
+    margin-right: 15vh;
+    border-radius: 14px;
+    background-color: #A4AC86;
+}
+
+.col{
+    width: 80%;
+    padding: 10vh;
+    margin: 12vh;
+    background-color: #A4AC86;
+}

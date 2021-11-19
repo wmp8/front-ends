@@ -26,12 +26,17 @@ const Plantobj = ({ plants, getPlant, updatePlants}) => {
         console.log(err);
         })
     }
+
+    const handleNewClick = () => {
+        navigate('/new')
+    }
     return (
         <>
         <h1>Your Plants</h1>
-        <Link to='/new'>
-        <button >Add New Plant</button>
-        </Link>
+        <div className='card'>
+            <button  className='cardButton' onClick={handleNewClick}>Add New Plant</button>
+        </div>
+        
         <section>
         {
             plants && !plants.message ? plants.map((plant) => (
