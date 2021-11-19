@@ -6,19 +6,34 @@ h1 {
     margin-top: 5%;
 }
 
+h3 {
+    text-align: center;
+    margin-bottom: 2%;
+}
+
 .card {
     display: flex;
+    border: none;
 }
 
 img{
-    width: 80%;
+    width: 60vh;
+    max-height: 60vh;
     align-self: center;
     margin: 2% 0 2% 0;
 }
 
 .cardButton {
     display: inline-block;
-    width: 50%;
+    width: 28%;
+    margin-bottom: 1%;
     justify-content: center;
     align-self: center;
+    border-radius: 14px;
+    background-color: #A4AC86;
 }
+
+
+/* Plant name above the buttons 
+    add button colors
+*/

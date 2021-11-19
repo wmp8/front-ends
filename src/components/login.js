@@ -10,9 +10,16 @@ const initialData = {
   password: ''
 }
 
+const initialState = {
+  error: '',
+  loading: false
+}
+
 export default function Login({ changeLoggedIn }) {
   const navigate = useNavigate()
     const [formData, setFormData] = useState(initialData)
+    const [state, setState] = useState(initialState)
+
 
     const handleChange = (e) => {
       const name = e.target.name
@@ -28,15 +35,17 @@ export default function Login({ changeLoggedIn }) {
       e.preventDefault()
       axios.post('https://wampl.herokuapp.com/api/auth/login', formData)
       .then(resp=> {
-        console.log('LOGIN', resp.data.token)
+        console.log('LOGIN', resp.data)
         localStorage.setItem('token', resp.data.token);
         changeLoggedIn(true)
-        console.log('data', resp.data.payload)
         navigate('/plantobj');
       })
       .catch(err=> {
-        
         console.log(err);
+        setState({
+          ...state,
+          error: `Not a match: ${err.response.data.message}`
+        });
       })
   }
 
@@ -72,8 +81,10 @@ export default function Login({ changeLoggedIn }) {
             id='password' />
         </FormGroup>
       <Button className='button'>Submit</Button>
+      <p className='error' id='error'>{state.error}</p>
 
         </Form>
       </>
     );
   }
+  

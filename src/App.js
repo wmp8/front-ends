@@ -11,10 +11,10 @@ import NavBar  from "./components/Navbar";
 import Plantobj from './components/Plantobj';
 import Plant from './components/Plant';
 import axiosWithAuth from './utils/axiosWithAuth';
-
+import CreatePlant from './components/Createplant';
 import './App.css'
 
-
+const auth = localStorage.getItem("token")
 
 
 
@@ -22,11 +22,12 @@ import './App.css'
 function App() {
   const [open, setOpen] = useState('False')
   const [plants, setPlants] = useState();
+  const [plant, setPlant] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
    const getPlants =() => {
     axiosWithAuth()
-    .get(`/plants/all`)
+    .get(`/plants`)
     .then(resp=> {
       setPlants(resp.data);
       console.log('appjs', resp.data);
@@ -36,8 +37,20 @@ function App() {
     })
   }
 
+  const getPlant = (id) => {
+    axiosWithAuth()
+    .get(`plants/${id}`)
+    .then(resp=> {
+      setPlant(resp.data);
+      console.log('appjs', resp.data);
+    })
+    .catch(err=> {
+      console.log(err);
+    })
+  }
+
   useEffect(()=>{
-    if (isLoggedIn) {
+     if (isLoggedIn || auth) {
       console.log('AM I HERE?')
       getPlants()
     }
@@ -64,7 +77,7 @@ function App() {
               path="/plantobj"
               element={
                 <PrivateRoute>
-                  <Plantobj plants={plants}/>
+                  <Plantobj plants={plants} getPlant={getPlant}/>
                 </PrivateRoute>
               }
             />
@@ -72,15 +85,15 @@ function App() {
               exact path='/plant' 
               element={
               <PrivateRoute>
-                <Plant updatePlants={updatePlants}/>
+                <Plant updatePlants={updatePlants} plant={plant} getPlant={getPlant}/>
               </PrivateRoute>
                 }
             />
-            <Route exact path='/edit' element={<EditPlant updatePlants={updatePlants}/>}/>
+            <Route exact path='/edit' element={<EditPlant plant={plant} getPlant={getPlant} updatePlants={updatePlants}/>}/>
+            <Route exact path='/new' element={<CreatePlant plant={plant} getPlant={getPlant} updatePlants={updatePlants}/>}/>
           </Routes>
       </div>
     );
   }
   
-  export default App;
-  
+  export default App;  

@@ -1,53 +1,38 @@
 // plant has id: integer ,nickname: string  ,species: string h2o frequency:Type determined by implementation, image
+
 import React, { useState, useEffect } from "react";
 import "./plant.css";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import { useNavigate } from 'react-router-dom';
 
-let plantData = {
-  image_url: "/images/marble-pothos.png",
-  light_requirement:
-    "Thrives in medium to low indirect light. Not suited for intense, direct sun.",
-  nickname: "Marble Queen Pothos",
-  plant_id: 1,
-  species: "",
-  user_id: 1,
-  water_frequency: "Water every 1-2 weeks",
-};
-console.log(plantData);
 
-const Plant = () => {
-  const [data, setData] = useState(plantData);
 
-  useEffect(() => {
-    fetchPlant();
-  }, []);
 
-  const fetchPlant = () => {
-    axiosWithAuth()
-      .get("/api/plants/:plant_id")
-      .then((res) => {
-        console.log(res);
-        // setData(res.data)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+const Plant = ({ plant, getPlant }) => {
+  const navigate = useNavigate()
 
+  const handleEditClick = (id) => {
+    getPlant(id)
+    navigate('/edit')
+}
   return (
+    plant ?
     <div className="plant-container">
       <h1>Plant Diaries</h1>
 
       <div className="plant-card">
         <div className="topPlant">
-          <h3>Name: {data.nickname}</h3>
+
+
+          <h3>Name: {plant.nickname}</h3>
+
 
           <div className="img-container">
             <img
               className="plantImg"
-              src={data.image_url}
-              alt={data.nickname}
+              src={plant.image_url}
+              alt={plant.nickname}
             />
           </div>
         </div>
@@ -56,36 +41,60 @@ const Plant = () => {
           <div className="text">
             <div className="plantText">
               <h4> Light Requirement: </h4>
-              <p>{data.light_requirement}</p>
+              <p>{plant.light_requirement}</p>
             </div>
 
             <div className="plantText">
               <h4>Plant ID: </h4>
-              <p>{data.plant_id}</p>
+              <p>{plant.plant_id}</p>
             </div>
 
             <div className="plantText">
               <h4>Species: </h4>
-              <p>{data.species}</p>
+              <p>{plant.species}</p>
             </div>
 
             <div className="plantText">
               <h4>User-ID: </h4>
-              <p>{data.user_id}</p>
+              <p>{plant.user_id}</p>
+
+              <p> Light Requirement: </p>
+              <p>{plant.light_requirement}</p>
+            </div>
+
+            <div className="plantText">
+              <h4>Plant ID: </h4>
+              <p>{plant.plant_id}</p>
+            </div>
+
+            <div className="plantText">
+              <h4>Species: </h4>
+              <p>{plant.species}</p>
+            </div>
+
+            <div className="plantText">
+              <h4>User-ID: </h4>
+              <p>{plant.user_id}</p>
             </div>
 
             <div className="plantText">
               <div className="water">
+
                 <h4>Water frequency: </h4>
-                <p>{data.water_frequency}</p>
+                <p>{plant.water_frequency}</p>
+
               </div>
             </div>
           </div>
 
-          <button className="p-btn">Edit</button>
+
+   
+
+          <button onClick={() => handleEditClick(plant.plant_id)}>Edit</button>
+
         </div>
       </div>
-    </div>
+    </div> : null
   );
 };
 
